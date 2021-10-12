@@ -16,12 +16,12 @@ const RecetasProvider = (props) => {
 
     useEffect(()=>{
         if(consulta){
-             const obtenerRecetas = async ()=> {
-            const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${nombre}&c=${categoria}`
-            const consutltaAPI = () => {
-                const respuesta = axios.get(url)
-                console.log(respuesta)
-            }
+             const obtenerRecetas = async () => {
+                 const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${nombre}&c=${categoria}`
+                    const respuesta = await axios.get(url)
+                    setRecetas(respuesta.data.drinks)
+                    console.log(recetas)
+            
         }
 
         obtenerRecetas()
@@ -32,8 +32,9 @@ const RecetasProvider = (props) => {
     return (
         <RecetasContext.Provider
             value={{
+                recetas,
                 buscarRecetas,
-                setConsulta
+                setConsulta,
             }}
         >
             {props.children}
