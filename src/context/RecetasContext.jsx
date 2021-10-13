@@ -20,14 +20,13 @@ const RecetasProvider = (props) => {
                  const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${nombre}&c=${categoria}`
                     const respuesta = await axios.get(url)
                     setRecetas(respuesta.data.drinks)
-                    console.log(recetas)
             
         }
 
         obtenerRecetas()
         }
        
-    },[busqueda]);
+    },[busqueda, recetas, categoria, consulta, nombre]);
 
     return (
         <RecetasContext.Provider

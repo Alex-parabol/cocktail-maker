@@ -5,7 +5,6 @@ import Receta from './Receta'
 export default function ListaRecetas() {
 
     const { recetas } = useContext(RecetasContext );
-    console.log(recetas)
 
     return (
         <div className="row mt-5">
