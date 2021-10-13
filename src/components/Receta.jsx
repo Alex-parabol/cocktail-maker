@@ -1,6 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { ModalContext } from '../context/ModalContext'
 
 export default function Receta({receta}) {
+
+    const { setIdReceta } = useContext(ModalContext);
+
     return (
         <div className="col-md-4 mb-3">
             <div className="card">
@@ -12,6 +16,9 @@ export default function Receta({receta}) {
                     <button
                         type='button'
                         className='btn btn-block btn-primary'
+                        onClick={()=> {
+                            setIdReceta(receta.idDrink)
+                        }
                     >
                         How to make
                     </button>
